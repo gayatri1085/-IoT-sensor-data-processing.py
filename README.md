@@ -1,19 +1,69 @@
-1. Imports `pandas`, `sqlite3`, `random`, and `time` to handle data, database operations, sensor simulation, and periodic execution.  
+# IoT Sensor Data Processing
 
-2. Generates random temperature readings between **20°C and 30°C**, with a **10% chance of an anomaly** where the temperature spikes by 10-20°C.  
+## Overview
+This project focuses on **processing and analyzing IoT sensor data** using Python.  
+It simulates how raw sensor readings can be cleaned, transformed, and analyzed to extract meaningful insights for monitoring and decision-making.
 
-3. Creates an SQLite database (`sensor_data.db`) and a table `sensor_readings` to store timestamps and temperature readings if it does not already exist.  
+The project demonstrates a basic end-to-end IoT data pipeline:
+- Data ingestion
+- Preprocessing
+- Feature extraction
+- Simple analysis and visualization
 
-4. Inserts new sensor data into the database using SQL queries, ensuring each reading is recorded with a timestamp.  
+---
 
-5. Fetches all stored temperature readings and detects anomalies by filtering values **above 28°C** for abnormal conditions.  
+## Problem Statement
+IoT devices generate continuous streams of raw sensor data that often contain:
+- Noise
+- Missing values
+- Irregular sampling
 
-6. Runs an **infinite loop** that generates, stores, and analyzes sensor data, updating every **5 seconds** to simulate real-time monitoring.  
+This project aims to:
+- Process raw sensor readings
+- Clean and structure the data
+- Perform basic statistical analysis
+- Prepare data for further ML or monitoring systems
 
-7. Uses `pandas.read_sql_query()` to retrieve sensor readings from the database and process them for anomaly detection.  
+---
 
-8. Prints detected anomalies when temperature readings exceed **28°C**, providing real-time alerts of unusual conditions.  
+## Key Features
+- Reads IoT sensor data from input files or simulated streams
+- Cleans and normalizes sensor values
+- Handles missing or corrupted data
+- Computes summary statistics
+- Visualizes sensor trends
 
-9. Handles **keyboard interrupts (Ctrl+C)** gracefully by stopping the loop and closing the database connection safely.  
+---
 
-10. Ensures the script runs **only when executed directly**, preventing unintended execution when imported into other programs.
+## How It Works
+
+### 1. Data Ingestion
+Sensor data is loaded from a file (e.g., CSV) containing time-series readings.
+
+### 2. Preprocessing
+The data is:
+- Stripped of invalid values
+- Converted into structured format
+- Normalized for analysis
+
+### 3. Analysis
+The system computes:
+- Mean, max, min sensor values
+- Trend patterns over time
+- Basic anomaly indicators
+
+---
+
+## Tech Stack
+- Python  
+- Pandas  
+- NumPy  
+- Matplotlib  
+
+---
+
+## How to Run
+
+1. Install dependencies:
+```bash
+pip install -r requirements.txt
