@@ -1,0 +1,12 @@
+def create_database():
+    conn = sqlite3.connect('sensor_data.db')  # <-- this creates the DB file
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS sensor_readings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            timestamp TEXT,
+            temperature REAL
+        )
+    ''')
+    conn.commit()
+    return conn
